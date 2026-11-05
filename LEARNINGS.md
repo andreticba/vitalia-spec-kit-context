@@ -1,7 +1,7 @@
-<!-- LEARNINGS.md | Atualizado em: 03-11-2026 05:50:35(GMT-04:00) -->
+<!-- LEARNINGS.md | Atualizado em: 04-11-2026 17:35:56(GMT-04:00) -->
 # 💡 Aprendizados Técnicos e Lições Aprendidas Consolidadas
 
-**Data/Hora de Geração:** `03-11-2026 05:50:35(GMT-04:00)` | **Fuso Horário:** America/Cuiaba `(GMT-04:00)`
+**Data/Hora de Geração:** `04-11-2026 17:35:56(GMT-04:00)` | **Fuso Horário:** America/Cuiaba `(GMT-04:00)`
 
 ## KIT
 - **Aprendizado:** [KIT] Contratos OpenAPI 3.0 para Google Gemini REST: Schemas JSON validados por compiladores de modelos de fronteira rejeitam meta-campos Draft-07 como $schema, title no nó raiz e additionalProperties: false (gerando HTTP 400). Padrão estrito OpenAPI 3.0 limpo.
