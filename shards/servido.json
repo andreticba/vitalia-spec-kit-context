@@ -1,10 +1,10 @@
 {
   "machine_id": "72a556ad",
   "machine_name": "servido",
-  "task": "Spec 002: Universal Bootstrap & Runtime (v0.0.1)",
+  "task": "003-fix-universal-bootstrap-omissions",
   "status": "Concluído",
-  "next_step": "Iniciar ciclo SDD da Spec 003: Especialistas Verticais & Capacidades Especializadas",
-  "summary": "Conclusão integral do MVP da Spec 002: Bootstrap idempotente, isolamento de runtime em ~/.vitalia-spec-kit/.venv, desacoplamento de Redis/Postgres/Docker, Context Lifting seguro, governança dos 12 TOMLs com Vitalia Architect e 25 testes automatizados aprovados.",
+  "next_step": "Preparar release/tag ou iniciar a próxima spec sequencial do roadmap",
+  "summary": "Entrega e validação integral da Spec 003: Fix Universal Bootstrap Omissions, com resolução dinâmica de kit_dir, purga de legados, governança temporal SRP, dashboard rico e analyze.toml.",
   "mode": "Standalone (Filesystem Puro)",
-  "updated_at": "2026-11-04T21:08:55.793220-04:00"
+  "updated_at": "2026-11-07T06:51:57.917473-04:00"
 }
