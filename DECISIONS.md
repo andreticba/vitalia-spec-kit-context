@@ -1,7 +1,7 @@
-<!-- DECISIONS.md | Atualizado em: 07-11-2026 21:41:04(GMT-04:00) -->
+<!-- DECISIONS.md | Atualizado em: 08-11-2026 21:50:21(GMT-04:00) -->
 # 🏛️ Decisões de Arquitetura e Governança Consolidadas (ADRs)
 
-**Data/Hora de Geração:** `07-11-2026 21:41:04(GMT-04:00)` | **Fuso Horário:** America/Cuiaba `(GMT-04:00)`
+**Data/Hora de Geração:** `08-11-2026 21:50:21(GMT-04:00)` | **Fuso Horário:** America/Cuiaba `(GMT-04:00)`
 
 | ID | Categoria | Decisão | Racional | Máquina | Data |
 |---|---|---|---|---|---|
@@ -13,3 +13,6 @@
 | `f3067b6c` | `ARQUITETURA` | Instituir a Matriz Bidimensional de Testes P05 com 4 Modalidades ([TEST:NEW], [TEST:BUGFIX], [TEST:REFACTOR], [TEST:MIGRATION]), Cenário de Falsificação obrigatório e bloqueio de testes sintáticos rasos. | Impede que features de infraestrutura/CLI e migrações passem na validação apenas verificando existência de arquivos sem testar execução real e regressão. | `eb10269b` | 07-11-2026 21:38:04(GMT-04:00) |
 | `a6e3da62` | `ARQUITETURA` | Criar o Sub-Agente /vitalia-research (research.toml + gp_research.yaml) e calibrar grounding_domains.yaml em 10 domínios alinhados à stack de produção do ecossistema (incluindo ai-control). | Separa a responsabilidade de pesquisa profunda, Grounding Temporal (P03), validação HTTP 200 e Engenharia Reversa Funcional em 3 Camadas antes da especificação e planejamento. | `eb10269b` | 07-11-2026 21:38:04(GMT-04:00) |
 | `9d78edb0` | `PROJETO` | Consolidar todas as especificações e contratos das Specs 002, 003 e do Ciclo Corretivo na âncora unificada .vitalia/memory/data_storage/research/anchor-research-brainstorming-002-003.md para reexecução limpa (dogfooding) a partir do commit íntegro da Spec 001 (23bb91b). | Evita alucinações por artefatos intermediários divergentes e permite validar o kit recém-blindado reconstruindo as Specs 002 e 003 do zero com governança completa. | `eb10269b` | 07-11-2026 21:38:04(GMT-04:00) |
+| `98aae91b` | `ARQUITETURA` | Desacoplamento total de Redis local no Kit v0.0.1, utilizando envelopes de contexto direto em disco (.vitalia/memory/data_storage/context/<machine_id>/). | Elimina dependências de serviços e containers externos para desenvolvedores e pesquisadores sem infraestrutura pesada. | `eb10269b` | 08-11-2026 21:48:52(GMT-04:00) |
+| `23ce3811` | `ARQUITETURA` | Política incondicional de Zero Poda (total_budget: 0, no_prune: true) para modelos de fronteira em todos os 16 workflows SDD e 14 perfis gp_*.yaml. | Modelos de fronteira suportam janelas amplas de contexto, garantindo que nenhuma regra constitucional ou diretiva seja perdida. | `eb10269b` | 08-11-2026 21:48:52(GMT-04:00) |
+| `5c455455` | `ARQUITETURA` | Padronização de esquemas em OpenAPI 3.0 puro sem propriedades de meta-schema ($schema, title de raiz, additionalProperties: false). | Compatibilidade universal com ferramentas de IA, SDKs e IDEs que rejeitam dialetos incompatíveis de JSON Schema. | `eb10269b` | 08-11-2026 21:48:52(GMT-04:00) |

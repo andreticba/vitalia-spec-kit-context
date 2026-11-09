@@ -1,7 +1,11 @@
-<!-- SESSION_HISTORY.md | Atualizado em: 07-11-2026 21:41:04(GMT-04:00) -->
+<!-- SESSION_HISTORY.md | Atualizado em: 08-11-2026 21:50:21(GMT-04:00) -->
 # 📜 Histórico Cronológico de Sessões
 
-**Data/Hora de Geração:** `07-11-2026 21:41:04(GMT-04:00)` | **Fuso Horário:** America/Cuiaba `(GMT-04:00)`
+**Data/Hora de Geração:** `08-11-2026 21:50:21(GMT-04:00)` | **Fuso Horário:** America/Cuiaba `(GMT-04:00)`
+
+### 🕒 08-11-2026 21:48:52(GMT-04:00) — `srv_master`
+- **Tarefa:** Spec 002: Universal Bootstrap Runtime
+- **Próximo Passo (P0):** `Realizar teste de ponta a ponta da instalação do kit (kit-bootstrap.sh) em máquina limpa (WSL2/zsh) e avançar para a Spec 003.`
 
 ### 🕒 07-11-2026 21:38:04(GMT-04:00) — `srv_master`
 - **Tarefa:** Specs 002 + 003 + Ciclo Corretivo SDD (Âncora Unificada e Blindagem de Workflows)
