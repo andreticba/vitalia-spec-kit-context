@@ -1,10 +1,11 @@
-schema_version: "0.5.0"
+# eb10269b.yaml | Vitalia SPEC Kit v0.0.1 | 10-11-2026 15:46:20(GMT-04:00)
+schema_version: "0.0.1"
 machine_name: "srv_master"
 machine_id: "eb10269b"
 mode: "Standalone"
-current_task: "Revisão Contratual Formal, Dinamicidade Constitucional e Arquitetura de Sensores do Vitalia SPEC Kit"
+current_task: "003-modular-runtime-and-sensor-suite"
 status: "Concluído"
-next_step: "Iniciar no próximo turno a especificação SDD formal sequencial para implementar em código (source/) os contratos, novos schemas, scripts e testes validados nos documentos da pasta TEMP/"
-last_sync: "09-11-2026 23:28:42(GMT-04:00)"
+next_step: "Realizar teste de ponta a ponta da instalação do kit na máquina nova"
+last_sync: "10-11-2026 15:46:20(GMT-04:00)"
 steps_completed:
-  - "Revisão contratual extensiva dos 16 workflows SDD e 14 perfis gp_*.yaml com erradicação de números estáticos e suporte a Context Lifting sem poda. Concepção do motor dinâmico de sub-agentes no vitalia-architect guiado por agents_catalog.yaml, separação de responsabilidade para o perfil ambiguity_scoring.yaml com calculador determinístico sdd_ambiguity_scorer.py, adoção da suíte de sensores de runtime VRSS, novo faxineiro de contexto e elevação do --help didático a princípio constitucional mandatório. Consolidação de inventário geral em TEMP/inventario.md."
+  - "Finalização completa da Spec 003: modular-runtime-and-sensor-suite. Eradicação de débitos arquiteturais (Redis purgado, tmp_cleanup desacoplado), implementação da suíte de 5 sensores VRSS, validação de contratos dos 16 workflows canônicos e aprovação de 13/13 testes automatizados. Auditoria converge com veredito PASS."

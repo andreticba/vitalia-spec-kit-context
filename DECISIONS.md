@@ -1,7 +1,9 @@
-<!-- DECISIONS.md | Atualizado em: 09-11-2026 23:31:25(GMT-04:00) -->
+<!-- DECISIONS.md | Vitalia SPEC Kit v0.0.1 | 10-11-2026 15:47:53(GMT-04:00) -->
+> **DECISIONS.md | Vitalia SPEC Kit v0.0.1 | 10-11-2026 15:47:53(GMT-04:00)**
+
 # 🏛️ Decisões de Arquitetura e Governança Consolidadas (ADRs)
 
-**Data/Hora de Geração:** `09-11-2026 23:31:25(GMT-04:00)` | **Fuso Horário:** America/Cuiaba `(GMT-04:00)`
+**Data/Hora de Geração:** `10-11-2026 15:47:53(GMT-04:00)` | **Fuso Horário:** America/Cuiaba `(GMT-04:00)`
 
 | ID | Categoria | Decisão | Racional | Máquina | Data |
 |---|---|---|---|---|---|
@@ -20,3 +22,5 @@
 | `b72cfc32` | `ARQUITETURA` | Desacoplar o cálculo de ambiguidades de grounding_domains.yaml criando o perfil ambiguity_scoring.yaml e o schema ambiguity_scoring.schema.json, com cálculo determinístico via script sdd_ambiguity_scorer.py. | Preserva o Princípio da Responsabilidade Única (SRP) e elimina alucinações aritméticas em cálculos mentais da LLM. | `eb10269b` | 09-11-2026 23:28:42(GMT-04:00) |
 | `53189038` | `ARQUITETURA` | Adotar a Vitalia Runtime Sensor Suite (VRSS) estruturada em 5 classes de sensores e pipeline de ingestão em 4 estágios com Structured Error Envelopes. | Fornece observabilidade em malha fechada para os agentes sem poluir a janela de contexto com dumps de terminal e tracebacks brutos. | `eb10269b` | 09-11-2026 23:28:42(GMT-04:00) |
 | `7449df5b` | `ARQUITETURA` | Elevar a obrigatoriedade da flag --help didática com exemplos de uso a Princípio Constitucional Mandatório para 100% dos scripts executáveis e ferramentas CLI do Kit. | Garante acessibilidade e usabilidade para equipes multidisciplinares e pesquisadores sem background de engenharia profunda. | `eb10269b` | 09-11-2026 23:28:42(GMT-04:00) |
+| `b2989966` | `ARQUITETURA` | Desacoplamento da limpeza de temporários do hook runner de contexto para uma ferramenta CLI independente (vitalia_tmp_cleanup.py). | Elimina matriz de limpeza de temporários dentro do payload de contexto, acabando com o ruído e sequestro de atenção cognitiva dos modelos. | `eb10269b` | 10-11-2026 15:46:20(GMT-04:00) |
+| `7a77ad93` | `ARQUITETURA` | Centralização de backups e manifestos gerados pelo instalador na Camada 4 (.vitalia/memory/data_storage/). | Garante pureza de 100% na árvore de skills da IDE (.agents/skills/) e na raiz de .vitalia/, impedindo arquivos soltos ou ocultos residuais. | `eb10269b` | 10-11-2026 15:46:20(GMT-04:00) |

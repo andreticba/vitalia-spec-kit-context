@@ -1,7 +1,9 @@
-<!-- LEARNINGS.md | Atualizado em: 09-11-2026 23:31:25(GMT-04:00) -->
+<!-- LEARNINGS.md | Vitalia SPEC Kit v0.0.1 | 10-11-2026 15:47:53(GMT-04:00) -->
+> **LEARNINGS.md | Vitalia SPEC Kit v0.0.1 | 10-11-2026 15:47:53(GMT-04:00)**
+
 # 💡 Aprendizados Técnicos e Lições Aprendidas Consolidadas
 
-**Data/Hora de Geração:** `09-11-2026 23:31:25(GMT-04:00)` | **Fuso Horário:** America/Cuiaba `(GMT-04:00)`
+**Data/Hora de Geração:** `10-11-2026 15:47:53(GMT-04:00)` | **Fuso Horário:** America/Cuiaba `(GMT-04:00)`
 
 ## KIT
 - **Aprendizado:** [KIT] Contratos OpenAPI 3.0 para Google Gemini REST: Schemas JSON validados por compiladores de modelos de fronteira rejeitam meta-campos Draft-07 como $schema, title no nó raiz e additionalProperties: false (gerando HTTP 400). Padrão estrito OpenAPI 3.0 limpo.
@@ -49,6 +51,15 @@
 - **Aprendizado:** [KIT] Suíte de Sensores de Runtime e Pipeline Anti-Ruído: O terminal bruto nunca deve vazar para a janela de contexto; sensores devem fatiar e destilar falhas em Structured Error Envelopes (JSON minimalista), usando Context Lifting para persistir dumps no disco e ativando o Inverted CoT para auto-correção.
   - **Racional:** Previne diluição de atenção e o fenômeno lost-in-the-middle em prompts longos, forçando o modelo a raciocinar sobre evidências estruturadas.
   - **Origem:** `srv_master` | **Data:** 09-11-2026 23:28:42(GMT-04:00)
+- **Aprendizado:** Em scripts bash com 'set -eo pipefail', pipelines contendo grep (ex: grep ... | awk ...) falham imediatamente quando grep não encontra linhas. Devem ser protegidos com '(grep ... || true) | awk ...'.
+  - **Racional:** Garante robustez em pipelines shell defensivos sob modo estrito sem interromper a execução prematuramente.
+  - **Origem:** `srv_master` | **Data:** 10-11-2026 15:46:20(GMT-04:00)
+- **Aprendizado:** Frontmatter YAML em SKILL.md de agentes de IDE deve iniciar obrigatoriamente na linha 1 exata com '---'.
+  - **Racional:** Cabeçalhos ou comentários colocados antes do delimitador invalidam o parser de YAML e quebram a descoberta de skills.
+  - **Origem:** `srv_master` | **Data:** 10-11-2026 15:46:20(GMT-04:00)
+- **Aprendizado:** Arquivos em .vitalia/memory/session/ (como SESSION_HISTORY.md) são artefatos compilados da Camada 3 e jamais devem ser editados manualmente.
+  - **Racional:** A mutação da memória de sessão pertence exclusivamente ao motor de contexto (vitalia_context_engine.py), respeitando a Regra da Cerca Elétrica.
+  - **Origem:** `srv_master` | **Data:** 10-11-2026 15:46:20(GMT-04:00)
 
 ## PROJETO
 - **Aprendizado:** [PROJETO] Governança Scaffold Puro e Convenção Sequencial: Estrutura specs/<NNN>-<slug>/ com 3 dígitos zero-padded e scaffold direto de source/ para ~/.vitalia/ garante reprodutibilidade e modularidade.
@@ -63,6 +74,9 @@
 - **Aprendizado:** [PROJETO] Isolamento Rigoroso em Fases de Concepção: Manter source/ e ~/.vitalia/ 100% intocados durante a revisão contratual e concentrar relatórios e matrizes decisórias na pasta TEMP/ garante rastreabilidade e impede corrupção prematura do repositório antes da execução formal da spec.
   - **Racional:** Assegura que qualquer implementação de código no repositório ocorra estritamente sob uma spec formal aprovada.
   - **Origem:** `srv_master` | **Data:** 09-11-2026 23:28:42(GMT-04:00)
+- **Aprendizado:** A suíte de sensores VRSS atua como guarda ativa durante todo o ciclo de desenvolvimento, capturando caminhos hardcoded, anomalias e segredos em tempo real.
+  - **Racional:** Executar a suíte de 5 sensores previne regressões contratuais e violações de Progressive Disclosure.
+  - **Origem:** `srv_master` | **Data:** 10-11-2026 15:46:20(GMT-04:00)
 
 ## GOVERNANCA
 - **Aprendizado:** [GOVERNANCA] Specs Corretivas vs Imutabilidade de Entregas: Specs concluídas e comitadas são artefatos imutáveis. Erros e lacunas pós-entrega não devem ser maquiados como 'hardening' nem anexados à spec antiga; exigem abertura de spec corretiva sequencial formal (fix-*) com Root Cause Analysis transparente.
