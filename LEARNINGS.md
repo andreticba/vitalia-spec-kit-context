@@ -1,7 +1,7 @@
-<!-- LEARNINGS.md | Atualizado em: 08-11-2026 21:50:21(GMT-04:00) -->
+<!-- LEARNINGS.md | Atualizado em: 09-11-2026 23:31:25(GMT-04:00) -->
 # 💡 Aprendizados Técnicos e Lições Aprendidas Consolidadas
 
-**Data/Hora de Geração:** `08-11-2026 21:50:21(GMT-04:00)` | **Fuso Horário:** America/Cuiaba `(GMT-04:00)`
+**Data/Hora de Geração:** `09-11-2026 23:31:25(GMT-04:00)` | **Fuso Horário:** America/Cuiaba `(GMT-04:00)`
 
 ## KIT
 - **Aprendizado:** [KIT] Contratos OpenAPI 3.0 para Google Gemini REST: Schemas JSON validados por compiladores de modelos de fronteira rejeitam meta-campos Draft-07 como $schema, title no nó raiz e additionalProperties: false (gerando HTTP 400). Padrão estrito OpenAPI 3.0 limpo.
@@ -37,6 +37,18 @@
 - **Aprendizado:** Envelopes de context lifting e schemas OpenAPI 3.0 devem sincronizar propriedades aninhadas mandatárias (como prompt replicado no topo e dentro de guardian).
   - **Racional:** Atende compiladores rígidos de schema JSON e consumidores REST simultaneamente.
   - **Origem:** `srv_master` | **Data:** 08-11-2026 21:48:52(GMT-04:00)
+- **Aprendizado:** [KIT] Sub-Agent Dispatch Engine no Architect via Catálogo: O Arquiteto não deve acoplar tipos de especialistas estaticamente em seu prompt; deve resolver dinamicamente via agents_catalog.yaml em runtime (padrão vitalia-route), permitindo adicionar novos especialistas sem alterar o contrato do workflow.
+  - **Racional:** Garante extensibilidade zero-touch e preserva o Princípio do Contexto Delimitado (Bounded Context) sem inflar a sessão principal com ferramentas desnecessárias.
+  - **Origem:** `srv_master` | **Data:** 09-11-2026 23:28:42(GMT-04:00)
+- **Aprendizado:** [KIT] Separação de Responsabilidade Única (SRP) em Perfis de Governança: Matrizes de cálculo matemático, escalas e limiares de ambiguidade não devem sobrecarregar grounding_domains.yaml; exigem perfil (ambiguity_scoring.yaml) e schema próprios.
+  - **Racional:** Mantém grounding_domains.yaml focado estritamente em grounding temporal e autoridades externas, enquanto os parâmetros de pontuação matemática ganham governança e schema dedicados.
+  - **Origem:** `srv_master` | **Data:** 09-11-2026 23:28:42(GMT-04:00)
+- **Aprendizado:** [KIT] Princípio Constitucional de Engenharia Didática: 100% dos scripts utilitários do kit devem implementar --help didático com exemplos práticos de uso; código sem help ou com help críptico é considerado violação constitucional bloqueante.
+  - **Racional:** Torna o kit acessível a pesquisadores e desenvolvedores de diferentes níveis e viabiliza validação automatizada de conformidade antes de qualquer release.
+  - **Origem:** `srv_master` | **Data:** 09-11-2026 23:28:42(GMT-04:00)
+- **Aprendizado:** [KIT] Suíte de Sensores de Runtime e Pipeline Anti-Ruído: O terminal bruto nunca deve vazar para a janela de contexto; sensores devem fatiar e destilar falhas em Structured Error Envelopes (JSON minimalista), usando Context Lifting para persistir dumps no disco e ativando o Inverted CoT para auto-correção.
+  - **Racional:** Previne diluição de atenção e o fenômeno lost-in-the-middle em prompts longos, forçando o modelo a raciocinar sobre evidências estruturadas.
+  - **Origem:** `srv_master` | **Data:** 09-11-2026 23:28:42(GMT-04:00)
 
 ## PROJETO
 - **Aprendizado:** [PROJETO] Governança Scaffold Puro e Convenção Sequencial: Estrutura specs/<NNN>-<slug>/ com 3 dígitos zero-padded e scaffold direto de source/ para ~/.vitalia/ garante reprodutibilidade e modularidade.
@@ -48,6 +60,9 @@
 - **Aprendizado:** Isolamento de ambiente de desenvolvimento preservando ~/.vitalia congelado e simulando testes de máquina limpa via tmp_path e diretórios parametrizados.
   - **Racional:** Garante reprodutibilidade e blindagem contra poluição de ambientes globais.
   - **Origem:** `srv_master` | **Data:** 08-11-2026 21:48:52(GMT-04:00)
+- **Aprendizado:** [PROJETO] Isolamento Rigoroso em Fases de Concepção: Manter source/ e ~/.vitalia/ 100% intocados durante a revisão contratual e concentrar relatórios e matrizes decisórias na pasta TEMP/ garante rastreabilidade e impede corrupção prematura do repositório antes da execução formal da spec.
+  - **Racional:** Assegura que qualquer implementação de código no repositório ocorra estritamente sob uma spec formal aprovada.
+  - **Origem:** `srv_master` | **Data:** 09-11-2026 23:28:42(GMT-04:00)
 
 ## GOVERNANCA
 - **Aprendizado:** [GOVERNANCA] Specs Corretivas vs Imutabilidade de Entregas: Specs concluídas e comitadas são artefatos imutáveis. Erros e lacunas pós-entrega não devem ser maquiados como 'hardening' nem anexados à spec antiga; exigem abertura de spec corretiva sequencial formal (fix-*) com Root Cause Analysis transparente.
