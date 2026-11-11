@@ -1,5 +1,5 @@
 <!-- dashboard_template.md | Vitalia SPEC Kit v0.0.1 | 08-11-2026 20:12(GMT-04:00) -->
-> **README.md | Vitalia SPEC Kit v0.0.1 | 10-11-2026 20:21:24(GMT-04:00)**
+> **README.md | Vitalia SPEC Kit v0.0.1 | 11-11-2026 11:04:06(GMT-04:00)**
 
 # 🧠 Painel de Contexto — vitalia-spec-kit
 
@@ -21,8 +21,8 @@
 ```mermaid
 flowchart TD
   Cloud(("☁️ Git Remoto / Hub"))
-  M_7f367bd3["💻 andrenote - Spec 004 — Pre-Flight Check, Isolamento Estrito do .venv e Observabilidade Passo a Passo na Instalação (Standalone)"]
-  M_7f367bd3 <-->|"10-11-2026 20:17:46(GMT-04:00)"| Cloud
+  M_7f367bd3["💻 andrenote - Spec 005 — Runtime Discrepancy, Dual-Virtualenv and Runner Inviolability (Standalone)"]
+  M_7f367bd3 <-->|"11-11-2026 10:58:54(GMT-04:00)"| Cloud
   style M_7f367bd3 stroke:#0969da,stroke-width:2px,fill:#ddf4ff,color:#0969da
   M_eb10269b["💻 srv_master - 003-modular-runtime-and-sensor-suite (Standalone)"]
   M_eb10269b <-->|"10-11-2026 15:46:20(GMT-04:00)"| Cloud
@@ -53,11 +53,11 @@ flowchart TD
   <tbody>
     <tr>
       <td><strong>andrenote</strong> (<code>7f367bd3</code>)</td>
-      <td>Spec 004 — Pre-Flight Check, Isolamento Estrito do .venv e Observabilidade Passo a Passo na Instalação</td>
+      <td>Spec 005 — Runtime Discrepancy, Dual-Virtualenv and Runner Inviolability</td>
       <td align="center"><img src="https://img.shields.io/badge/-Standalone-blue?style=flat-square" alt="Standalone" /></td>
       <td align="center"><span style="color:green;">●</span> Concluído</td>
-      <td>10-11-2026 20:17:46(GMT-04:00)</td>
-      <td><strong>Executar /vitalia-session-consolidate para sincronizar os shards e compilar o Dashboard, ou iniciar nova feature SDD</strong></td>
+      <td>11-11-2026 10:58:54(GMT-04:00)</td>
+      <td><strong>Teste real de inicialização de sessão (/vitalia-session-start) e consolidação em ambiente operacional</strong></td>
     </tr>
     <tr>
       <td><strong>srv_master</strong> (<code>eb10269b</code>)</td>
@@ -83,9 +83,9 @@ flowchart TD
 ## 🎯 Sessão Ativa em Destaque
 
 - **Estação Ativa:** `andrenote` (`7f367bd3`)
-- **Tarefa em Execução:** Spec 004 — Pre-Flight Check, Isolamento Estrito do .venv e Observabilidade Passo a Passo na Instalação
-- **🎯 Próximo Passo Prioritário (P0):** `Executar /vitalia-session-consolidate para sincronizar os shards e compilar o Dashboard, ou iniciar nova feature SDD`
-- **Última Sincronização:** `10-11-2026 20:17:46(GMT-04:00)`
+- **Tarefa em Execução:** Spec 005 — Runtime Discrepancy, Dual-Virtualenv and Runner Inviolability
+- **🎯 Próximo Passo Prioritário (P0):** `Teste real de inicialização de sessão (/vitalia-session-start) e consolidação em ambiente operacional`
+- **Última Sincronização:** `11-11-2026 10:58:54(GMT-04:00)`
 
 ---
 
@@ -98,6 +98,7 @@ flowchart TD
 
 | Data / Hora | Estação (ID) | Tarefa Executada | Próximo Passo (P0) |
 | :--- | :--- | :--- | :--- |
+| 11-11-2026 10:58:54(GMT-04:00) | `andrenote (7f367bd3)` | Spec 005 — Runtime Discrepancy, Dual-Virtualenv and Runner Inviolability | `Teste real de inicialização de sessão (/vitalia-session-start) e consolidação em ambiente operacional` |
 | 10-11-2026 20:17:46(GMT-04:00) | `andrenote (7f367bd3)` | Spec 004 — Pre-Flight Check, Isolamento Estrito do .venv e Observabilidade Passo a Passo na Instalação | `Executar /vitalia-session-consolidate para sincronizar os shards e compilar o Dashboard, ou iniciar nova feature SDD` |
 | 10-11-2026 15:46:20(GMT-04:00) | `srv_master (eb10269b)` | 003-modular-runtime-and-sensor-suite | `Realizar teste de ponta a ponta da instalação do kit na máquina nova` |
 | 09-11-2026 23:28:42(GMT-04:00) | `srv_master (eb10269b)` | Revisão Contratual Formal, Dinamicidade Constitucional e Arquitetura de Sensores do Vitalia SPEC Kit | `Iniciar no próximo turno a especificação SDD formal sequencial para implementar em código (source/) os contratos, novos schemas, scripts e testes validados nos documentos da pasta TEMP/` |
@@ -115,6 +116,8 @@ flowchart TD
 
 | Máquina (ID) | Decisão Arquitetural | Impacto / Racional |
 | :--- | :--- | :--- |
+| `7f367bd3` | **[302f047e]** `ARQUITETURA` Auto-substituição defensiva no Hook Runner: Interceptação automática de chamadas python3 para sys.executable quando o alvo for utilitário interno do kit. | Blinda a execução de workflows legados ou extensões mesmo em terminais com PATH corrompido ou sem pacotes do kit instalados no Python global. |
+| `7f367bd3` | **[daac3d87]** `ARQUITETURA` Desacoplamento estrito Dual-Runtime: {{KIT_PYTHON}} para governança interna do kit em ${VITALIA_KIT_DIR}/.venv e {{PROJECT_PYTHON}} para a aplicação cliente com busca em 4 níveis e fallback dinâmico. | Isola completamente as dependências da ferramenta de governança das dependências da aplicação hospedeira, eliminando conflitos de pacotes. |
 | `7f367bd3` | **[d00e5b8a]** `ARQUITETURA` ADR-0003 — Pre-flight check modular, isolamento estrito do .venv e observabilidade passo a passo | Criação da biblioteca source/bin/lib/preflight.sh compartilhada entre kit-bootstrap.sh e install-project, purga definitiva de --system-site-packages, logs isolados por UID em /tmp e banner contextual de shell. |
 | `eb10269b` | **[7a77ad93]** `ARQUITETURA` Centralização de backups e manifestos gerados pelo instalador na Camada 4 (.vitalia/memory/data_storage/). | Garante pureza de 100% na árvore de skills da IDE (.agents/skills/) e na raiz de .vitalia/, impedindo arquivos soltos ou ocultos residuais. |
 | `eb10269b` | **[b2989966]** `ARQUITETURA` Desacoplamento da limpeza de temporários do hook runner de contexto para uma ferramenta CLI independente (vitalia_tmp_cleanup.py). | Elimina matriz de limpeza de temporários dentro do payload de contexto, acabando com o ruído e sequestro de atenção cognitiva dos modelos. |
@@ -123,8 +126,6 @@ flowchart TD
 | `eb10269b` | **[b72cfc32]** `ARQUITETURA` Desacoplar o cálculo de ambiguidades de grounding_domains.yaml criando o perfil ambiguity_scoring.yaml e o schema ambiguity_scoring.schema.json, com cálculo determinístico via script sdd_ambiguity_scorer.py. | Preserva o Princípio da Responsabilidade Única (SRP) e elimina alucinações aritméticas em cálculos mentais da LLM. |
 | `eb10269b` | **[dc086746]** `ARQUITETURA` Instituir Motor Dinâmico de Despacho de Sub-Agentes no vitalia-architect 100% guiado por agents_catalog.yaml (padrão vitalia-route). | Permite que novos especialistas adicionados ao catálogo sejam imediatamente utilizáveis pelo Arquiteto sem necessidade de alterar o prompt do architect.toml. |
 | `eb10269b` | **[5c455455]** `ARQUITETURA` Padronização de esquemas em OpenAPI 3.0 puro sem propriedades de meta-schema ($schema, title de raiz, additionalProperties: false). | Compatibilidade universal com ferramentas de IA, SDKs e IDEs que rejeitam dialetos incompatíveis de JSON Schema. |
-| `eb10269b` | **[23ce3811]** `ARQUITETURA` Política incondicional de Zero Poda (total_budget: 0, no_prune: true) para modelos de fronteira em todos os 16 workflows SDD e 14 perfis gp_*.yaml. | Modelos de fronteira suportam janelas amplas de contexto, garantindo que nenhuma regra constitucional ou diretiva seja perdida. |
-| `eb10269b` | **[98aae91b]** `ARQUITETURA` Desacoplamento total de Redis local no Kit v0.0.1, utilizando envelopes de contexto direto em disco (.vitalia/memory/data_storage/context/<machine_id>/). | Elimina dependências de serviços e containers externos para desenvolvedores e pesquisadores sem infraestrutura pesada. |
 </details>
 
 <details>

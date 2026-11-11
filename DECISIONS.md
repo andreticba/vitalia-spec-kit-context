@@ -1,9 +1,9 @@
-<!-- DECISIONS.md | Vitalia SPEC Kit v0.0.1 | 10-11-2026 20:21:24(GMT-04:00) -->
-> **DECISIONS.md | Vitalia SPEC Kit v0.0.1 | 10-11-2026 20:21:24(GMT-04:00)**
+<!-- DECISIONS.md | Vitalia SPEC Kit v0.0.1 | 11-11-2026 11:04:06(GMT-04:00) -->
+> **DECISIONS.md | Vitalia SPEC Kit v0.0.1 | 11-11-2026 11:04:06(GMT-04:00)**
 
 # 🏛️ Decisões de Arquitetura e Governança Consolidadas (ADRs)
 
-**Data/Hora de Geração:** `10-11-2026 20:21:24(GMT-04:00)` | **Fuso Horário:** America/Cuiaba `(GMT-04:00)`
+**Data/Hora de Geração:** `11-11-2026 11:04:06(GMT-04:00)` | **Fuso Horário:** America/Cuiaba `(GMT-04:00)`
 
 | ID | Categoria | Decisão | Racional | Máquina | Data |
 |---|---|---|---|---|---|
@@ -25,3 +25,5 @@
 | `b2989966` | `ARQUITETURA` | Desacoplamento da limpeza de temporários do hook runner de contexto para uma ferramenta CLI independente (vitalia_tmp_cleanup.py). | Elimina matriz de limpeza de temporários dentro do payload de contexto, acabando com o ruído e sequestro de atenção cognitiva dos modelos. | `eb10269b` | 10-11-2026 15:46:20(GMT-04:00) |
 | `7a77ad93` | `ARQUITETURA` | Centralização de backups e manifestos gerados pelo instalador na Camada 4 (.vitalia/memory/data_storage/). | Garante pureza de 100% na árvore de skills da IDE (.agents/skills/) e na raiz de .vitalia/, impedindo arquivos soltos ou ocultos residuais. | `eb10269b` | 10-11-2026 15:46:20(GMT-04:00) |
 | `d00e5b8a` | `ARQUITETURA` | ADR-0003 — Pre-flight check modular, isolamento estrito do .venv e observabilidade passo a passo | Criação da biblioteca source/bin/lib/preflight.sh compartilhada entre kit-bootstrap.sh e install-project, purga definitiva de --system-site-packages, logs isolados por UID em /tmp e banner contextual de shell. | `7f367bd3` | 10-11-2026 20:17:46(GMT-04:00) |
+| `daac3d87` | `ARQUITETURA` | Desacoplamento estrito Dual-Runtime: {{KIT_PYTHON}} para governança interna do kit em ${VITALIA_KIT_DIR}/.venv e {{PROJECT_PYTHON}} para a aplicação cliente com busca em 4 níveis e fallback dinâmico. | Isola completamente as dependências da ferramenta de governança das dependências da aplicação hospedeira, eliminando conflitos de pacotes. | `7f367bd3` | 11-11-2026 10:58:54(GMT-04:00) |
+| `302f047e` | `ARQUITETURA` | Auto-substituição defensiva no Hook Runner: Interceptação automática de chamadas python3 para sys.executable quando o alvo for utilitário interno do kit. | Blinda a execução de workflows legados ou extensões mesmo em terminais com PATH corrompido ou sem pacotes do kit instalados no Python global. | `7f367bd3` | 11-11-2026 10:58:54(GMT-04:00) |
