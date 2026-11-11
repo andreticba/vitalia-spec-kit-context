@@ -1,9 +1,9 @@
-<!-- LEARNINGS.md | Vitalia SPEC Kit v0.0.1 | 10-11-2026 15:47:53(GMT-04:00) -->
-> **LEARNINGS.md | Vitalia SPEC Kit v0.0.1 | 10-11-2026 15:47:53(GMT-04:00)**
+<!-- LEARNINGS.md | Vitalia SPEC Kit v0.0.1 | 10-11-2026 20:21:24(GMT-04:00) -->
+> **LEARNINGS.md | Vitalia SPEC Kit v0.0.1 | 10-11-2026 20:21:24(GMT-04:00)**
 
 # 💡 Aprendizados Técnicos e Lições Aprendidas Consolidadas
 
-**Data/Hora de Geração:** `10-11-2026 15:47:53(GMT-04:00)` | **Fuso Horário:** America/Cuiaba `(GMT-04:00)`
+**Data/Hora de Geração:** `10-11-2026 20:21:24(GMT-04:00)` | **Fuso Horário:** America/Cuiaba `(GMT-04:00)`
 
 ## KIT
 - **Aprendizado:** [KIT] Contratos OpenAPI 3.0 para Google Gemini REST: Schemas JSON validados por compiladores de modelos de fronteira rejeitam meta-campos Draft-07 como $schema, title no nó raiz e additionalProperties: false (gerando HTTP 400). Padrão estrito OpenAPI 3.0 limpo.
@@ -60,6 +60,12 @@
 - **Aprendizado:** Arquivos em .vitalia/memory/session/ (como SESSION_HISTORY.md) são artefatos compilados da Camada 3 e jamais devem ser editados manualmente.
   - **Racional:** A mutação da memória de sessão pertence exclusivamente ao motor de contexto (vitalia_context_engine.py), respeitando a Regra da Cerca Elétrica.
   - **Origem:** `srv_master` | **Data:** 10-11-2026 15:46:20(GMT-04:00)
+- **Aprendizado:** Proibição estrita de auto-invocação sem caminho absoluto em scripts de mock de shell
+  - **Racional:** Mocks executáveis injetados no PATH temporário nunca devem chamar o mesmo nome de binário sem caminho absoluto, sob risco de recursão infinita (fork bomb) que satura processos e memória no WSL2. Preferir sempre mocks estáticos sem subprocessos.
+  - **Origem:** `andrenote` | **Data:** 10-11-2026 20:17:46(GMT-04:00)
+- **Aprendizado:** Validação de permissão de escrita em caminhos inexistentes
+  - **Racional:** O teste defensivo prévio deve inspecionar recursivamente o primeiro ancestral existente no disco com probe temporário via mktemp, impedindo a criação precoce de diretórios órfãos.
+  - **Origem:** `andrenote` | **Data:** 10-11-2026 20:17:46(GMT-04:00)
 
 ## PROJETO
 - **Aprendizado:** [PROJETO] Governança Scaffold Puro e Convenção Sequencial: Estrutura specs/<NNN>-<slug>/ com 3 dígitos zero-padded e scaffold direto de source/ para ~/.vitalia/ garante reprodutibilidade e modularidade.
@@ -77,6 +83,9 @@
 - **Aprendizado:** A suíte de sensores VRSS atua como guarda ativa durante todo o ciclo de desenvolvimento, capturando caminhos hardcoded, anomalias e segredos em tempo real.
   - **Racional:** Executar a suíte de 5 sensores previne regressões contratuais e violações de Progressive Disclosure.
   - **Origem:** `srv_master` | **Data:** 10-11-2026 15:46:20(GMT-04:00)
+- **Aprendizado:** Preservação de exit codes em redirecionamentos Bash
+  - **Racional:** O padrão 'command >> file 2>&1 || true; STATUS=$?' mascara o código de retorno tornando-o 0. A abordagem canônica é usar 'set +e ... set -e' capturando $? diretamente sem '|| true'.
+  - **Origem:** `andrenote` | **Data:** 10-11-2026 20:17:46(GMT-04:00)
 
 ## GOVERNANCA
 - **Aprendizado:** [GOVERNANCA] Specs Corretivas vs Imutabilidade de Entregas: Specs concluídas e comitadas são artefatos imutáveis. Erros e lacunas pós-entrega não devem ser maquiados como 'hardening' nem anexados à spec antiga; exigem abertura de spec corretiva sequencial formal (fix-*) com Root Cause Analysis transparente.

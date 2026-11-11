@@ -1,9 +1,13 @@
-<!-- SESSION_HISTORY.md | Vitalia SPEC Kit v0.0.1 | 10-11-2026 15:47:53(GMT-04:00) -->
-> **SESSION_HISTORY.md | Vitalia SPEC Kit v0.0.1 | 10-11-2026 15:47:53(GMT-04:00)**
+<!-- SESSION_HISTORY.md | Vitalia SPEC Kit v0.0.1 | 10-11-2026 20:21:24(GMT-04:00) -->
+> **SESSION_HISTORY.md | Vitalia SPEC Kit v0.0.1 | 10-11-2026 20:21:24(GMT-04:00)**
 
 # 📜 Histórico Cronológico de Sessões
 
-**Data/Hora de Geração:** `10-11-2026 15:47:53(GMT-04:00)` | **Fuso Horário:** America/Cuiaba `(GMT-04:00)`
+**Data/Hora de Geração:** `10-11-2026 20:21:24(GMT-04:00)` | **Fuso Horário:** America/Cuiaba `(GMT-04:00)`
+
+### 🕒 10-11-2026 20:17:46(GMT-04:00) — `andrenote`
+- **Tarefa:** Spec 004 — Pre-Flight Check, Isolamento Estrito do .venv e Observabilidade Passo a Passo na Instalação
+- **Próximo Passo (P0):** `Executar /vitalia-session-consolidate para sincronizar os shards e compilar o Dashboard, ou iniciar nova feature SDD`
 
 ### 🕒 10-11-2026 15:46:20(GMT-04:00) — `srv_master`
 - **Tarefa:** 003-modular-runtime-and-sensor-suite
