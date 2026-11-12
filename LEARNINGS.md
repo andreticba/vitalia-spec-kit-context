@@ -1,9 +1,9 @@
-<!-- LEARNINGS.md | Vitalia SPEC Kit v0.0.1 | 11-11-2026 11:04:06(GMT-04:00) -->
-> **LEARNINGS.md | Vitalia SPEC Kit v0.0.1 | 11-11-2026 11:04:06(GMT-04:00)**
+<!-- LEARNINGS.md | Vitalia SPEC Kit v0.0.1 | 11-11-2026 22:35:41(GMT-04:00) -->
+> **LEARNINGS.md | Vitalia SPEC Kit v0.0.1 | 11-11-2026 22:35:41(GMT-04:00)**
 
 # 💡 Aprendizados Técnicos e Lições Aprendidas Consolidadas
 
-**Data/Hora de Geração:** `11-11-2026 11:04:06(GMT-04:00)` | **Fuso Horário:** America/Cuiaba `(GMT-04:00)`
+**Data/Hora de Geração:** `11-11-2026 22:35:41(GMT-04:00)` | **Fuso Horário:** America/Cuiaba `(GMT-04:00)`
 
 ## KIT
 - **Aprendizado:** [KIT] Contratos OpenAPI 3.0 para Google Gemini REST: Schemas JSON validados por compiladores de modelos de fronteira rejeitam meta-campos Draft-07 como $schema, title no nó raiz e additionalProperties: false (gerando HTTP 400). Padrão estrito OpenAPI 3.0 limpo.
@@ -72,6 +72,15 @@
 - **Aprendizado:** Fronteira de Sandbox em IDEs de Agentes: Erros com código 127 ao acessar binários fora do workspace decorrem exclusivamente do isolamento de sandbox do terminal. A governança do AGENTS.md deve instruir BypassSandbox: true e vetar a auto-reinstalação reflexa via kit-bootstrap.sh.
   - **Racional:** Evita loops de reinstalação e confusão cognitiva dos modelos diante de permissões de terminal.
   - **Origem:** `andrenote` | **Data:** 11-11-2026 10:58:54(GMT-04:00)
+- **Aprendizado:** Elevação proativa de sandbox no Passo 1 de SKILL.md com BypassSandbox: true elimina o erro de cold-start 127 na IDE Antigravity.
+  - **Racional:** A execução inicial fora da sandbox evita falhas de permissão no primeiro turno e prescinde de loops reativos de retry.
+  - **Origem:** `andrenote` | **Data:** 11-11-2026 22:33:23(GMT-04:00)
+- **Aprendizado:** Idempotência estrita em agent_preserver.sh preserva regras do usuário e expurga duplicações de blocos do kit.
+  - **Racional:** O algoritmo baseado em awk isola linhas externas aos marcadores START e END, prevenindo acúmulo de blocos repetidos.
+  - **Origem:** `andrenote` | **Data:** 11-11-2026 22:33:23(GMT-04:00)
+- **Aprendizado:** Padrão Afirmativo canônico na governança e nos prompts maximiza a aderência comportamental dos LLMs.
+  - **Racional:** Descrever o formato esperado ('Describe the shape you want, not the hole') impede que modelos ativem âncoras semânticas proibitivas.
+  - **Origem:** `andrenote` | **Data:** 11-11-2026 22:33:23(GMT-04:00)
 
 ## PROJETO
 - **Aprendizado:** [PROJETO] Governança Scaffold Puro e Convenção Sequencial: Estrutura specs/<NNN>-<slug>/ com 3 dígitos zero-padded e scaffold direto de source/ para ~/.vitalia/ garante reprodutibilidade e modularidade.
@@ -95,6 +104,9 @@
 - **Aprendizado:** Preservação de atributos raiz em contratos de ambiente: Manter atributos de alto nível (project_root, kit_dir) no retorno do health check garante retrocompatibilidade estrita para ferramentas existentes enquanto novos consumidores consomem os nós segregados kit_runtime e project_runtime.
   - **Racional:** Permite evolução contínua de contratos sem quebrar consumidores legados ou suítes de testes anteriores.
   - **Origem:** `andrenote` | **Data:** 11-11-2026 10:58:54(GMT-04:00)
+- **Aprendizado:** A topologia real no cliente possui 3 camadas estritas: projeto cliente, kit global instalado e memória local .vitalia.
+  - **Racional:** A pasta source/ pertence exclusivamente ao repositório de desenvolvimento do kit e não deve ser exposta como camada para clientes.
+  - **Origem:** `andrenote` | **Data:** 11-11-2026 22:33:23(GMT-04:00)
 
 ## GOVERNANCA
 - **Aprendizado:** [GOVERNANCA] Specs Corretivas vs Imutabilidade de Entregas: Specs concluídas e comitadas são artefatos imutáveis. Erros e lacunas pós-entrega não devem ser maquiados como 'hardening' nem anexados à spec antiga; exigem abertura de spec corretiva sequencial formal (fix-*) com Root Cause Analysis transparente.

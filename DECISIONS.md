@@ -1,9 +1,9 @@
-<!-- DECISIONS.md | Vitalia SPEC Kit v0.0.1 | 11-11-2026 11:04:06(GMT-04:00) -->
-> **DECISIONS.md | Vitalia SPEC Kit v0.0.1 | 11-11-2026 11:04:06(GMT-04:00)**
+<!-- DECISIONS.md | Vitalia SPEC Kit v0.0.1 | 11-11-2026 22:35:41(GMT-04:00) -->
+> **DECISIONS.md | Vitalia SPEC Kit v0.0.1 | 11-11-2026 22:35:41(GMT-04:00)**
 
 # 🏛️ Decisões de Arquitetura e Governança Consolidadas (ADRs)
 
-**Data/Hora de Geração:** `11-11-2026 11:04:06(GMT-04:00)` | **Fuso Horário:** America/Cuiaba `(GMT-04:00)`
+**Data/Hora de Geração:** `11-11-2026 22:35:41(GMT-04:00)` | **Fuso Horário:** America/Cuiaba `(GMT-04:00)`
 
 | ID | Categoria | Decisão | Racional | Máquina | Data |
 |---|---|---|---|---|---|
@@ -27,3 +27,4 @@
 | `d00e5b8a` | `ARQUITETURA` | ADR-0003 — Pre-flight check modular, isolamento estrito do .venv e observabilidade passo a passo | Criação da biblioteca source/bin/lib/preflight.sh compartilhada entre kit-bootstrap.sh e install-project, purga definitiva de --system-site-packages, logs isolados por UID em /tmp e banner contextual de shell. | `7f367bd3` | 10-11-2026 20:17:46(GMT-04:00) |
 | `daac3d87` | `ARQUITETURA` | Desacoplamento estrito Dual-Runtime: {{KIT_PYTHON}} para governança interna do kit em ${VITALIA_KIT_DIR}/.venv e {{PROJECT_PYTHON}} para a aplicação cliente com busca em 4 níveis e fallback dinâmico. | Isola completamente as dependências da ferramenta de governança das dependências da aplicação hospedeira, eliminando conflitos de pacotes. | `7f367bd3` | 11-11-2026 10:58:54(GMT-04:00) |
 | `302f047e` | `ARQUITETURA` | Auto-substituição defensiva no Hook Runner: Interceptação automática de chamadas python3 para sys.executable quando o alvo for utilitário interno do kit. | Blinda a execução de workflows legados ou extensões mesmo em terminais com PATH corrompido ou sem pacotes do kit instalados no Python global. | `7f367bd3` | 11-11-2026 10:58:54(GMT-04:00) |
+| `78572053` | `ARQUITETURA` | ADR-0005: Elevação proativa de sandbox e governança constitucional dinâmica | Elimina erro 127, simplifica AGENTS.md para ~24 linhas úteis, purga VITALIA_KIT_DIR do .env do cliente e substitui números mágicos por resoluções dinâmicas. | `7f367bd3` | 11-11-2026 22:33:23(GMT-04:00) |
